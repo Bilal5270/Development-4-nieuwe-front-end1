@@ -82,10 +82,10 @@ function logout() {
 
 function loggedIn(inlogWaarde) {
   if (inlogWaarde == 1) {
-    console.log("Inlogstatus is nu 1");
+    console.log(`inlogWaarde is nu ${inlogWaarde}`);
     return true;
   } else {
-    console.log("Inlogstatus is nu 0");
+    console.log(`inlogWaarde is nu ${inlogWaarde}`);
     return false;
   }
 }

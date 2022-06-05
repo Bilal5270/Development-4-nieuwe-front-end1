@@ -60,7 +60,7 @@ async function getUser() {
     headers: {
       "Content-Type": "application/json",
 
-      Authorization: "Bearer" + getCookie("token"),
+      Authorization: "Bearer " + getCookie("token"),
     },
   });
 
@@ -133,7 +133,7 @@ function api(endpoint, method = "GET", data = {}) {
     mode: "cors",
     headers: {
       "Content-Type": "application/json",
-      Authorization: "Bearer" + getCookie("token"),
+      Authorization: "Bearer " + getCookie("token"),
     },
     body: method == "GET" ? null : JSON.stringify(data),
   }).then((res) => res.json());

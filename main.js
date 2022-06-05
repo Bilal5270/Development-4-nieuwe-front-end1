@@ -43,6 +43,8 @@ function login() {
       alert("Succesvol ingelogd");
       showPage("homePage");
       getUser();
+    } else {
+      console.log(res.message);
     }
   });
 }

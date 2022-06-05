@@ -62,6 +62,10 @@ button{
     cursor: pointer;
 }
 
+#uitloglink{
+    display: none;
+}
+
 .hidden{
     display: none;
 }

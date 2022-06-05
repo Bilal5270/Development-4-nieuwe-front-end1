@@ -37,12 +37,13 @@ function login() {
     if (res.message == "success") {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
-      console.log(res.message);
-      console.log(res.access_token);
-      console.log(data);
       alert("Succesvol ingelogd");
       showPage("homePage");
       getUser();
+      showPage("uitloglink");
+      hidePage("inloglink");
+      hidePage("registreerlink");
+      loggedIn(1);
     } else {
       console.log(res.message);
     }
@@ -68,7 +69,26 @@ async function getUser() {
   console.log(data);
 }
 
-function logout() {}
+function logout() {
+  getCookie("token");
+  deleteCookie("token");
+  getUser();
+  alert("Succesvol uitgelogd");
+  hidePage("uitloglink");
+  showPage("inloglink");
+  showPage("registreerlink");
+  loggedIn(0);
+}
+
+function loggedIn(inlogWaarde) {
+  if (inlogWaarde == 1) {
+    console.log("Inlogstatus is nu 1");
+    return true;
+  } else {
+    console.log("Inlogstatus is nu 0");
+    return false;
+  }
+}
 
 // Helper functions
 
@@ -94,6 +114,7 @@ function bindEvents() {
   //   showPage("registerPage")
   // );
   enableSubmits();
+  loggedIn(0);
 }
 
 function enableSubmits() {

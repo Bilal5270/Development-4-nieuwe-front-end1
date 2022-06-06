@@ -1,3 +1,4 @@
+let inlogWaarde = 0;
 function register(e) {
   // Check if passwords match
   if (getValue("Wachtwoord") !== getValue("HerhaalWachtwoord")) {
@@ -44,6 +45,7 @@ function login() {
       hidePage("inloglink");
       hidePage("registreerlink");
       loggedIn(1);
+      inlogWaarde = 1;
     } else {
       console.log(res.message);
     }
@@ -74,18 +76,20 @@ function logout() {
   deleteCookie("token");
   getUser();
   alert("Succesvol uitgelogd");
-  hidePage("uitloglink");
-  showPage("inloglink");
-  showPage("registreerlink");
   loggedIn(0);
+  inlogWaarde = 0;
 }
 
 function loggedIn(inlogWaarde) {
   if (inlogWaarde == 1) {
     console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    showPage("uitloglink");
     return true;
   } else {
     console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    showPage("inloglink");
+    showPage("registreerlink");
+    hidePage("uitloglink");
     return false;
   }
 }
@@ -114,7 +118,6 @@ function bindEvents() {
   //   showPage("registerPage")
   // );
   enableSubmits();
-  loggedIn(0);
 }
 
 function enableSubmits() {

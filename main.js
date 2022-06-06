@@ -1,3 +1,4 @@
+let inlogWaarde = 0;
 function register(e) {
   // Check if passwords match
   if (getValue("Wachtwoord") !== getValue("HerhaalWachtwoord")) {
@@ -37,12 +38,14 @@ function login() {
     if (res.message == "success") {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
-      console.log(res.message);
-      console.log(res.access_token);
-      console.log(data);
       alert("Succesvol ingelogd");
       showPage("homePage");
       getUser();
+      showPage("uitloglink");
+      hidePage("inloglink");
+      hidePage("registreerlink");
+      loggedIn(1);
+      inlogWaarde = 1;
     } else {
       console.log(res.message);
     }
@@ -60,7 +63,7 @@ async function getUser() {
     headers: {
       "Content-Type": "application/json",
 
-      Authorization: "Bearer" + getCookie("token"),
+      Authorization: "Bearer " + getCookie("token"),
     },
   });
 
@@ -68,7 +71,28 @@ async function getUser() {
   console.log(data);
 }
 
-function logout() {}
+function logout() {
+  getCookie("token");
+  deleteCookie("token");
+  getUser();
+  alert("Succesvol uitgelogd");
+  loggedIn(0);
+  inlogWaarde = 0;
+}
+
+function loggedIn(inlogWaarde) {
+  if (inlogWaarde == 1) {
+    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    showPage("uitloglink");
+    return true;
+  } else {
+    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    showPage("inloglink");
+    showPage("registreerlink");
+    hidePage("uitloglink");
+    return false;
+  }
+}
 
 // Helper functions
 
@@ -133,7 +157,7 @@ function api(endpoint, method = "GET", data = {}) {
     mode: "cors",
     headers: {
       "Content-Type": "application/json",
-      Authorization: "Bearer" + getCookie("token"),
+      Authorization: "Bearer " + getCookie("token"),
     },
     body: method == "GET" ? null : JSON.stringify(data),
   }).then((res) => res.json());

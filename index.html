@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="main.css" />
-    
+    <link rel="stylesheet" href="main.css" />
+
     <title>Bilal's Kebab</title>
 </head>
+
 <body>
     <!-- Home pagina -->
     <div id="homePage">
-    <div class="box">
-        <ul type="none">
-            <li id="homelink"><a href="">Home</a></li>
-            <li id="menulink"><a href="">Menu</a></li>
-            <li id="teamlink" > <a href="">Ons team</a></li>
-            <li id="inloglink" ><a onclick="hidePage('homePage'),showPage('loginPage')" >Inloggen</a></li>
-            <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
-        </ul>
-    </div>
-    <div class="wd">
-        <h1>Bilal's Kebab</h1>
-        <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van kebab en arabische gerechten.</h4>
-        <h2>Reservation</h2>
-        <div class="opt">
-            <form action="" method="post">
-                <input type="button" value="Reserveer nu!">
-            </form>
+        <div class="box">
+            <ul type="none">
+                <li id="homelink"><a href="">Home</a></li>
+                <li id="menulink"><a href="">Menu</a></li>
+                <li id="teamlink"> <a href="">Ons team</a></li>
+                <li id="inloglink"><a onclick="hidePage('homePage'),showPage('loginPage')">Inloggen</a></li>
+                <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
+            </ul>
         </div>
-    </div>
+        <div class="wd">
+            <h1>Bilal's Kebab</h1>
+            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van
+                kebab en arabische gerechten.</h4>
+            <h2>Reserveren</h2>
+            <div class="opt">
+                <form action="" method="post">
+                    <!-- <input type="button" value="Reserveer nu!"> -->
+                </form>
+                <div class="input">
+                    <span class="label">Voornaam:</span>
+                    <input type="text" name="Voornaam" id="Voornaam">
+                </div>
+                <div class="input">
+                    <span class="label">Achternaam:</span>
+                    <input type="text" name="Achternaam" id="Achternaam">
+                </div>
+                <div class="input">
+                    <span class="label">Email:</span>
+                    <input type="text" name="Email" id="Email">
+                </div>
+                <div class="input">
+                    <span class="label">Aantal personen:</span>
+                    <input type="text" name="Aantal" id="Aantal">
+                </div>
+                <a onclick="hidePage('homePage'),showPage('reservationPage')">
+                    <center> Klik hierop om te reserveren</center>
+                </a>
+            </div>
+        </div>
     </div>
     <!-- Register page -->
     <div class="container hidden" id="registerPage">
-        <div class="input">
-            <span class="label">Voornaam:</span>
-            <input type="text" name="Voornaam" id="Voornaam">
-        </div>
+
         <div class="input">
             <span class="label">Achternaam:</span>
             <input type="text" name="Achternaam" id="Achternaam">
@@ -95,7 +114,7 @@
         <p>Don't have an account yet? <span onclick="showPage('registerPage')">Register</span></p>
         <button id="homepageButton" onclick="showPage('homePage')">Terug naar homepage</button>
     </div>
-    
+
     <!-- User info page -->
     <div class="container hidden" id="mainPage">
         <span class="welcome" id="welcome"></span>
@@ -103,4 +122,5 @@
     </div>
 </body>
 <script src="main.js"></script>
+
 </html>

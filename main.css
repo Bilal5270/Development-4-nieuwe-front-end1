@@ -92,6 +92,15 @@ button{
 .box ul li:hover{background-color: green;}
 .box ul li a:hover{color:white;}
 
+
+#inlognaam{
+    width: 150px;
+    float: left;
+    margin: 10px auto ;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 .wd{
     width: 300px;
     height: 700px ;

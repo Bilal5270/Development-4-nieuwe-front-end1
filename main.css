@@ -94,9 +94,10 @@ button{
 
 
 #inlognaam{
-    width: 150px;
+    width: 200px;
     float: left;
     margin: 10px auto ;
+    margin-left: 40px;
     text-decoration: none;
     color: whitesmoke;
 }

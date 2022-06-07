@@ -1,4 +1,5 @@
 let inlogWaarde = 0;
+
 function register(e) {
   // Check if passwords match
   if (getValue("Wachtwoord") !== getValue("HerhaalWachtwoord")) {
@@ -69,6 +70,14 @@ async function getUser() {
 
   const data = await response.json();
   console.log(data);
+  if (data.message == "Successvol") {
+    inlogWaarde = 1;
+    loggedIn(1);
+    showPage("uitloglink");
+    hidePage("inloglink");
+    hidePage("registreerlink");
+  }
+  console.log(inlogWaarde);
 }
 
 function logout() {
@@ -118,6 +127,7 @@ function bindEvents() {
   //   showPage("registerPage")
   // );
   enableSubmits();
+  getUser();
 }
 
 function enableSubmits() {

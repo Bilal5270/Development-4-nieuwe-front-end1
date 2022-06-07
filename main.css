@@ -12,6 +12,11 @@ body{
     
 
 }
+
+.CursorP {
+    cursor: pointer;
+}
+
 p{
     color: #000;
 }

@@ -1,5 +1,3 @@
-let inlogWaarde = 0;
-
 function register(e) {
   // Check if passwords match
   if (getValue("Wachtwoord") !== getValue("HerhaalWachtwoord")) {
@@ -39,14 +37,14 @@ function login() {
     if (res.message == "success") {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
+      setCookie("role", 1, 365);
       alert("Succesvol ingelogd");
       showPage("homePage");
       getUser();
       showPage("uitloglink");
       hidePage("inloglink");
       hidePage("registreerlink");
-      loggedIn(1);
-      inlogWaarde = 1;
+      loggedIn();
     } else {
       console.log(res.message);
     }
@@ -71,35 +69,38 @@ async function getUser() {
   const data = await response.json();
   console.log(data);
   if (data.message == "Successvol") {
-    inlogWaarde = 1;
-    loggedIn(1);
+    loggedIn();
+    getCookie("role");
     showPage("uitloglink");
     hidePage("inloglink");
     hidePage("registreerlink");
   }
-  console.log(inlogWaarde);
 }
 
 function logout() {
   getCookie("token");
   deleteCookie("token");
+  getCookie("role");
+  deleteCookie("role");
   getUser();
   alert("Succesvol uitgelogd");
-  loggedIn(0);
-  inlogWaarde = 0;
+  loggedIn();
 }
 
-function loggedIn(inlogWaarde) {
-  if (inlogWaarde == 1) {
-    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+function loggedIn() {
+  if (getCookie("role") == 1) {
+    console.log(`Role is nu ${getCookie("role")}`);
     showPage("uitloglink");
-    return true;
+    return;
+  }
+  if (getCookie("role") == 2) {
+    return console.log("hello");
   } else {
-    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    console.log(`Role is nu ${getCookie("role")}`);
     showPage("inloglink");
     showPage("registreerlink");
     hidePage("uitloglink");
-    return false;
+    return;
   }
 }
 

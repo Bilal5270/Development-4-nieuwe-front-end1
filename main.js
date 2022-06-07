@@ -39,6 +39,7 @@ function login() {
     if (res.message == "success") {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
+      setCookie("rol", 1, 365);
       alert("Succesvol ingelogd");
       showPage("homePage");
       getUser();
@@ -49,6 +50,33 @@ function login() {
       inlogWaarde = 1;
     } else {
       console.log(res.message);
+    }
+  });
+}
+
+function login1() {
+  // Fetch data from html
+  data = {
+    Email: getValue("Email2"),
+    Wachtwoord: getValue("Wachtwoord2"),
+  };
+  console.log(data);
+  // Submit data to API
+  api("auth1", "POST", data).then((res) => {
+    if (res.message == "success") {
+      //Save the received JWT in a cookie
+      setCookie("token", res.access_token, 365);
+      setCookie("rol", 2, 365);
+      alert("Succesvol ingelogd als medewerker");
+      // getMedewerker();
+      showPage("medewerkerPage");
+      // showPage("uitloglink");
+      // hidePage("inloglink");
+      // hidePage("registreerlink");
+      loggedIn(2);
+      inlogWaarde = 2;
+    } else {
+      console.log(faal);
     }
   });
 }
@@ -77,29 +105,68 @@ async function getUser() {
     hidePage("inloglink");
     hidePage("registreerlink");
   }
+  if (getCookie("rol") == 2) {
+    loggedIn(2);
+    inlogWaarde = 2;
+  }
   console.log(inlogWaarde);
 }
+
+// const APIMEDEWERKER = "http://localhost:5000/medewerker";
+
+// async function getMedewerker() {
+//   const response = await fetch(APIMEDEWERKER, {
+//     method: "GET",
+
+//     mode: "cors",
+
+//     headers: {
+//       "Content-Type": "application/json",
+
+//       Authorization: "Bearer " + getCookie("token"),
+//     },
+//   });
+
+//   const data = await response.json();
+//   console.log(data);
+//   if (data.message == "Successvol ingelogd als medewerker") {
+//     inlogWaarde = 2;
+//     loggedIn(2);
+//     showPage("medewerkerPage");
+//     hidePage("homePage");
+//     showPage("uitloglink1");
+//   }
+//   console.log(inlogWaarde);
+// }
 
 function logout() {
   getCookie("token");
   deleteCookie("token");
+  deleteCookie("rol");
   getUser();
+  // getMedewerker();
   alert("Succesvol uitgelogd");
-  loggedIn(0);
   inlogWaarde = 0;
+  loggedIn(0);
 }
 
 function loggedIn(inlogWaarde) {
   if (inlogWaarde == 1) {
     console.log(`inlogWaarde is nu ${inlogWaarde}`);
     showPage("uitloglink");
-    return true;
+    hidePage("teamlink");
+  }
+  if (inlogWaarde == 2) {
+    showPage("medewerkerPage");
+    hidePage("homePage");
   } else {
     console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    hidePage("medewerkerPage");
+    showPage("homePage");
     showPage("inloglink");
     showPage("registreerlink");
     hidePage("uitloglink");
-    return false;
+    showPage("teamlink");
   }
 }
 
@@ -120,6 +187,7 @@ function hidePage(id) {
 function bindEvents() {
   connectButton("register", register);
   connectButton("login", login);
+  connectButton("login1", login1);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

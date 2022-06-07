@@ -15,7 +15,7 @@
         <ul type="none">
             <li id="homelink"><a onclick= "loggedIn(inlogWaarde)">Home</a></li>
             <li id="menulink"><a onclick= "loggedIn(inlogWaarde)">Menu</a></li>
-            <li id="teamlink" > <a onclick= "loggedIn(inlogWaarde)">Ons team</a></li>
+            <li id="teamlink" > <a onclick="hidePage('homePage'),showPage('loginPage1'),getCookie('token'),deleteCookie('token')">Medewerkersportaal</a></li>
             <li id="inloglink" ><a onclick="hidePage('homePage'),showPage('loginPage')" >Inloggen</a></li>
             <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
             <li id="uitloglink"><a onclick="logout()">Uitloggen</a></li>
@@ -33,6 +33,30 @@
         </div>
     </div>
     </div>
+    <!-- Home pagina voor medewerkers -->
+    <div id="medewerkerPage">
+        <div class="box">
+            <ul type="none">
+                <!-- <li id="homelink"><a onclick= "loggedIn(inlogWaarde)">Home</a></li> -->
+                <!-- <li id="menulink"><a onclick= "loggedIn(inlogWaarde)">Menu</a></li> -->
+                <!-- <li id="teamlink" > <a onclick="hidePage('homePage'),showPage('loginPage1'),getCookie('token'),deleteCookie('token')">Medewerkersportaal</a></li> -->
+                <!-- <li id="inloglink" ><a onclick="hidePage('homePage'),showPage('loginPage')" >Inloggen</a></li> -->
+                <!-- <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li> -->
+                <li id="uitloglink1"><a onclick="logout()">Uitloggen</a></li>
+                <!-- <h3 id="inlognaam">Voornaam Achternaam</h3>  -->
+            </ul>
+        </div>
+        <div class="wd">
+            <h1>Bilal's Kebab</h1>
+            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van kebab en arabische gerechten.</h4>
+            <h2>Reservation</h2>
+            <div class="opt">
+                <form action="" method="post">
+                    <input type="button" value="Reserveer nu!" class="CursorP">
+                </form>
+            </div>
+        </div>
+        </div>
     <!-- Register page -->
     <div class="container hidden" id="registerPage">
         <div class="input">
@@ -97,7 +121,21 @@
         <p>Don't have an account yet? <span onclick="showPage('registerPage')" class="CursorP">Register</span></p>
         <button id="homepageButton" onclick="showPage('homePage')">Terug naar homepage</button>
     </div>
-    
+    <!-- Login page voor medewerkers -->
+    <div class="container hidden" id="loginPage1">
+        <div class="input">
+            <span class="label">E-mail:</span>
+            <input type="text" name="Email" id="Email2">
+        </div>
+        <div class="input">
+            <span class="label">Wachtwoord:</span>
+            <input type="password" name="Wachtwoord" id="Wachtwoord2">
+        </div>
+        <div class="input">
+            <button id="login1">Login</button>
+        </div>
+        <button id="homepageButton" onclick="showPage('homePage')">Terug naar homepage</button>
+    </div>
 </body>
 <script src="main.js"></script>
 </html>

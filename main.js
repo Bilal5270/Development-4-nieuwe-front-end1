@@ -175,6 +175,7 @@ function bindEvents() {
   connectButton("register1", register1);
   connectButton("login", login);
   connectButton("login1", login1);
+  connectButton("tafelLink", showPage("tafelPage"));
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

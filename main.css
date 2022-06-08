@@ -80,13 +80,13 @@ button{
 }
 
 .box{
-    width: 900px;
-    float: right;
-    border: 1px solid none;
+    width: 1000px;
+   float: right;
+   border: 1px solid none;
 }
 
 .box ul li{
-    width: 120px;
+    width: 90px;
     float: left;
     margin: 10px auto ;
     text-align: center;
@@ -96,6 +96,21 @@ button{
     text-decoration: none;
     color: darkgray;
 
+}
+
+.box ul h7{
+    color: darkgray;
+    padding: 5px;
+}
+
+.box ul h8, .box ul h9{
+    color: darkgray;
+}
+
+.userName{
+    margin: 12px auto;
+    margin-right: 15px;
+    float: right;
 }
 
 .box ul li:hover{background-color: green;}
@@ -152,4 +167,9 @@ button{
 
 form, input[type="button"]:hover{
     background-color: green;
+}
+
+.snackbarfoto { 
+width: 75mm;
+height: 10cm;
 }

@@ -38,13 +38,30 @@ function login() {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
       setCookie("role", 1, 365);
-      alert("Succesvol ingelogd");
-      showPage("homePage");
+      alert("Succesvol ingelogd als gast");
       getUser();
-      showPage("uitloglink");
-      hidePage("inloglink");
-      hidePage("registreerlink");
-      loggedIn();
+    } else {
+      console.log(res.message);
+      alert(res.message);
+    }
+  });
+}
+function login1() {
+  // Fetch data from html
+  data = {
+    Email: getValue("Email2"),
+    Wachtwoord: getValue("Wachtwoord2"),
+  };
+  // Submit data to API
+  api("auth1", "POST", data).then((res) => {
+    if (res.message == "success") {
+      //Save the received JWT in a cookie
+      setCookie("token", res.access_token, 365);
+      setCookie("role", 2, 365);
+      alert("Succesvol ingelogd als medewerker");
+      getUser();
+      hidePage("homePage");
+      showPage("medewerkerPage");
     } else {
       console.log(res.message);
     }
@@ -68,12 +85,16 @@ async function getUser() {
 
   const data = await response.json();
   console.log(data);
-  if (data.message == "Successvol") {
+  if (getCookie("role") == 1) {
     loggedIn();
-    getCookie("role");
-    showPage("uitloglink");
-    hidePage("inloglink");
-    hidePage("registreerlink");
+    return;
+  }
+  if (getCookie("role") == 2) {
+    loggedIn();
+    return;
+  } else {
+    loggedIn();
+    return;
   }
 }
 
@@ -84,22 +105,30 @@ function logout() {
   deleteCookie("role");
   getUser();
   alert("Succesvol uitgelogd");
-  loggedIn();
 }
 
 function loggedIn() {
   if (getCookie("role") == 1) {
     console.log(`Role is nu ${getCookie("role")}`);
     showPage("uitloglink");
+    hidePage("teamlink");
+    showPage("homePage");
+    hidePage("inloglink");
+    hidePage("registreerlink");
     return;
   }
   if (getCookie("role") == 2) {
-    return console.log("hello");
+    showPage("medewerkerPage");
+    hidePage("homePage");
+    console.log(`Role is nu ${getCookie("role")}`);
+    return;
   } else {
     console.log(`Role is nu ${getCookie("role")}`);
     showPage("inloglink");
+    showPage("homePage");
     showPage("registreerlink");
     hidePage("uitloglink");
+    showPage("teamlink");
     return;
   }
 }
@@ -121,6 +150,7 @@ function hidePage(id) {
 function bindEvents() {
   connectButton("register", register);
   connectButton("login", login);
+  connectButton("login1", login1);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

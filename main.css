@@ -12,18 +12,16 @@ body{
     
 
 }
-
-.CursorP {
-    cursor: pointer;
-}
-
 p{
     color: #000;
 }
 #medewerkerPage{
     display: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6aaf4d59a80e8a637167f183e2b9c68e730581f1
 .container{
     position: absolute;
     display: inline-block;

@@ -15,15 +15,12 @@
     <div id="homePage">
     <div class="box">
         <ul type="none">
-<<<<<<< HEAD
             <li id="homelink"><a onclick= "loggedIn()">Home</a></li>
             <li id="menulink"><a onclick= "loggedIn()">Menu</a></li>
             <li id="teamlink" > <a onclick= "showPage('loginPage1'),hidePage('homePage')">Medewerkersportaal</a></li>
-=======
             <li id="homelink"><a onclick= "loggedIn(inlogWaarde)">Home</a></li>
             <li id="menulink"><a onclick= "loggedIn(inlogWaarde)">Menu</a></li>
             <li id="teamlink" > <a onclick="hidePage('homePage'),showPage('loginPage1'),getCookie('token'),deleteCookie('token')">Medewerkersportaal</a></li>
->>>>>>> 6aaf4d59a80e8a637167f183e2b9c68e730581f1
             <li id="inloglink" ><a onclick="hidePage('homePage'),showPage('loginPage')" >Inloggen</a></li>
             <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
             <li id="uitloglink"><a onclick="logout()">Uitloggen</a></li>

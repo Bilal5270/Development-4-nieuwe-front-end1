@@ -106,11 +106,16 @@ async function getUser() {
   if (data.message == "Successvol") {
     if (getCookie("role") == 1) {
       loggedIn();
-      console.log(data.User.Voornaam);
+      document.getElementById(
+        "userName"
+      ).textContent = `Welkom ${data.User.Voornaam} `;
       return;
     }
     if (getCookie("role") == 2) {
       loggedIn();
+      document.getElementById(
+        "inlognaam"
+      ).textContent = `Welkom ${data.User.Voornaam} `;
       return;
     }
   }

@@ -68,33 +68,6 @@ function login1() {
   });
 }
 
-function login1() {
-  // Fetch data from html
-  data = {
-    Email: getValue("Email2"),
-    Wachtwoord: getValue("Wachtwoord2"),
-  };
-  console.log(data);
-  // Submit data to API
-  api("auth1", "POST", data).then((res) => {
-    if (res.message == "success") {
-      //Save the received JWT in a cookie
-      setCookie("token", res.access_token, 365);
-      setCookie("rol", 2, 365);
-      alert("Succesvol ingelogd als medewerker");
-      // getMedewerker();
-      showPage("medewerkerPage");
-      // showPage("uitloglink");
-      // hidePage("inloglink");
-      // hidePage("registreerlink");
-      loggedIn(2);
-      inlogWaarde = 2;
-    } else {
-      console.log(faal);
-    }
-  });
-}
-
 const APIME = "http://localhost:5000/me";
 
 async function getUser() {
@@ -125,40 +98,12 @@ async function getUser() {
   }
 }
 
-// const APIMEDEWERKER = "http://localhost:5000/medewerker";
-
-// async function getMedewerker() {
-//   const response = await fetch(APIMEDEWERKER, {
-//     method: "GET",
-
-//     mode: "cors",
-
-//     headers: {
-//       "Content-Type": "application/json",
-
-//       Authorization: "Bearer " + getCookie("token"),
-//     },
-//   });
-
-//   const data = await response.json();
-//   console.log(data);
-//   if (data.message == "Successvol ingelogd als medewerker") {
-//     inlogWaarde = 2;
-//     loggedIn(2);
-//     showPage("medewerkerPage");
-//     hidePage("homePage");
-//     showPage("uitloglink1");
-//   }
-//   console.log(inlogWaarde);
-// }
-
 function logout() {
   getCookie("token");
   deleteCookie("token");
   getCookie("role");
   deleteCookie("role");
   getUser();
-  // getMedewerker();
   alert("Succesvol uitgelogd");
 }
 

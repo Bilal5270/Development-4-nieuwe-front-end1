@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css" />
-
+    <link rel="stylesheet"  href="main.css" />
+    
     <title>Bilal's Kebab</title>
 </head>
-
 <body>
     <!-- Home pagina -->
     <div id="homePage">
@@ -18,9 +16,6 @@
             <li id="homelink"><a onclick= "loggedIn()">Home</a></li>
             <li id="menulink"><a onclick= "loggedIn()">Menu</a></li>
             <li id="teamlink" > <a onclick= "showPage('loginPage1'),hidePage('homePage')">Medewerkersportaal</a></li>
-            <li id="homelink"><a onclick= "loggedIn(inlogWaarde)">Home</a></li>
-            <li id="menulink"><a onclick= "loggedIn(inlogWaarde)">Menu</a></li>
-            <li id="teamlink" > <a onclick="hidePage('homePage'),showPage('loginPage1'),getCookie('token'),deleteCookie('token')">Medewerkersportaal</a></li>
             <li id="inloglink" ><a onclick="hidePage('homePage'),showPage('loginPage')" >Inloggen</a></li>
             <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
             <li id="uitloglink"><a onclick="logout()">Uitloggen</a></li>
@@ -37,30 +32,7 @@
             </form>
         </div>
     </div>
-    <!-- Home pagina voor medewerkers -->
-    <div id="medewerkerPage">
-        <div class="box">
-            <ul type="none">
-                <!-- <li id="homelink"><a onclick= "loggedIn(inlogWaarde)">Home</a></li> -->
-                <!-- <li id="menulink"><a onclick= "loggedIn(inlogWaarde)">Menu</a></li> -->
-                <!-- <li id="teamlink" > <a onclick="hidePage('homePage'),showPage('loginPage1'),getCookie('token'),deleteCookie('token')">Medewerkersportaal</a></li> -->
-                <!-- <li id="inloglink" ><a onclick="hidePage('homePage'),showPage('loginPage')" >Inloggen</a></li> -->
-                <!-- <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li> -->
-                <li id="uitloglink1"><a onclick="logout()">Uitloggen</a></li>
-                <!-- <h3 id="inlognaam">Voornaam Achternaam</h3>  -->
-            </ul>
-        </div>
-        <div class="wd">
-            <h1>Bilal's Kebab</h1>
-            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van kebab en arabische gerechten.</h4>
-            <h2>Reservation</h2>
-            <div class="opt">
-                <form action="" method="post">
-                    <input type="button" value="Reserveer nu!" class="CursorP">
-                </form>
-            </div>
-        </div>
-        </div>
+    </div>
     <!-- Register page -->
     <div class="container hidden" id="registerPage">
         <div class="input">
@@ -140,7 +112,6 @@
         </div>
         <button id="homepageButton" onclick="showPage('homePage')">Terug naar homepage</button>
     </div>
-<<<<<<< HEAD
     <div id="medewerkerPage">
         <div class="box">
             <ul type="none">
@@ -160,9 +131,6 @@
         </div>
         </div>
     
-=======
->>>>>>> 6aaf4d59a80e8a637167f183e2b9c68e730581f1
 </body>
 <script src="main.js"></script>
-
 </html>

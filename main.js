@@ -70,12 +70,18 @@ async function getUser() {
 
   const data = await response.json();
   console.log(data);
+  console.log(data.GastenAccount.Achternaam);
   if (data.message == "Successvol") {
     inlogWaarde = 1;
     loggedIn(1);
     showPage("uitloglink");
     hidePage("inloglink");
     hidePage("registreerlink");
+    document.getElementById(
+      "Voornaam"
+    ).textContent = `Ingelogd als : ${data.GastenAccount.Voornaam}`;
+    document.getElementById("Achternaam").textContent =
+      data.GastenAccount.Achternaam;
   }
   console.log(inlogWaarde);
 }
@@ -172,6 +178,18 @@ function api(endpoint, method = "GET", data = {}) {
     body: method == "GET" ? null : JSON.stringify(data),
   }).then((res) => res.json());
 }
+
+// showcase Userdata when loggedin
+// async function getUser() {
+//   const response = await fetch(APIME, {
+//     method: "GET",
+//     mode: "cors",
+//   });
+//   const data = await response.json();
+
+//   document.getElementById("Voornaam").textContent = data[0].Voornaam;
+//   document.getElementById("Achternaam").textContent = data[0].Achternaam;
+// }
 
 // Cookie functions stolen from w3schools (https://www.w3schools.com/js/js_cookies.asp)
 function setCookie(cname, cvalue, exdays) {

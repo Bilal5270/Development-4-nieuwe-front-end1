@@ -87,6 +87,11 @@ async function getUser() {
   console.log(data);
   if (getCookie("role") == 1) {
     loggedIn();
+    document.getElementById(
+      "Voornaam"
+    ).textContent = `Ingelogd als : ${data.GastenAccount.Voornaam}`;
+    document.getElementById("Achternaam").textContent =
+      data.GastenAccount.Achternaam;
     return;
   }
   if (getCookie("role") == 2) {

@@ -153,3 +153,8 @@ button{
 form, input[type="button"]:hover{
     background-color: green;
 }
+
+.snackbarfoto { 
+width: 75mm;
+height: 10cm;
+}

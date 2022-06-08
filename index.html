@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="main.css" />
-    
+    <link rel="stylesheet" href="main.css" />
+
     <title>Bilal's Kebab</title>
 </head>
+
 <body>
     <!-- Home pagina -->
     <div id="homePage">
-    <div class="box">
-        <ul type="none">
-            <li id="homelink"><a onclick= "loggedIn()">Home</a></li>
-            <li id="menulink"><a onclick= "loggedIn()">Menu</a></li>
-            <li id="teamlink" > <a onclick= "showPage('loginPage1'),hidePage('homePage')">Medewerkersportaal</a></li>
-            <li id="inloglink" ><a onclick="hidePage('homePage'),showPage('loginPage')" >Inloggen</a></li>
-            <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
-            <li id="uitloglink"><a onclick="logout()">Uitloggen</a></li>
-            <h3 id="inlognaam">Voornaam Achternaam</h3>
-        </ul>
-    </div>
-    <div class="wd">
-        <h1>Bilal's Kebab</h1>
-        <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van kebab en arabische gerechten.</h4>
-        <h2>Reservation</h2>
-        <div class="opt">
-            <form action="" method="post">
-                <input type="button" value="Reserveer nu!" class="CursorP">
-            </form>
+        <div class="box">
+            <ul type="none">
+                <li id="homelink"><a onclick="loggedIn()">Home</a></li>
+                <li id="menulink"><a onclick="loggedIn()">Menu</a></li>
+                <li id="teamlink"> <a onclick="showPage('loginPage1'),hidePage('homePage')">Medewerkersportaal</a></li>
+                <li id="inloglink"><a onclick="hidePage('homePage'),showPage('loginPage')">Inloggen</a></li>
+                <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
+                <li id="uitloglink"><a onclick="logout()">Uitloggen</a></li>
+                <h3 id="inlognaam">Voornaam Achternaam</h3>
+            </ul>
         </div>
-    </div>
+        <div class="wd">
+            <h1>Bilal's Kebab</h1>
+            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van
+                kebab en arabische gerechten.</h4>
+            <h2>Reservation</h2>
+            <div class="opt">
+                <form action="" method="post">
+                    <input type="button" value="Reserveer nu!" class="CursorP">
+                </form>
+            </div>
+        </div>
     </div>
     <!-- Register page -->
     <div class="container hidden" id="registerPage">
@@ -121,16 +124,16 @@
         </div>
         <div class="wd">
             <h1>Bilal's Kebab</h1>
-            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van kebab en arabische gerechten.</h4>
-            <h2>Reservation</h2>
-            <div class="opt">
-                <form action="" method="post">
-                    <input type="button" value="Reserveer nu!" class="CursorP">
-                </form>
-            </div>
+            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van
+                kebab en arabische gerechten.</h4>
+            <h2>Je bent hier op de medewerkerspagina.</h2>
+            <img src="https://www.het-friethuys.nl/wp-content/uploads/2021/09/Luuk-Het-Friethuys-Oss-Schaijk.jpg"
+                alt="snackbarfoto" class="snackbarfoto">
         </div>
-        </div>
-    
+    </div>
+    </div>
+
 </body>
 <script src="main.js"></script>
+
 </html>

@@ -20,6 +20,10 @@ body{
 p{
     color: #000;
 }
+#medewerkerPage{
+    display: none;
+}
+
 .container{
     position: absolute;
     display: inline-block;

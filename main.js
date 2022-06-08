@@ -1,5 +1,3 @@
-let inlogWaarde = 0;
-
 function register(e) {
   // Check if passwords match
   if (getValue("Wachtwoord") !== getValue("HerhaalWachtwoord")) {
@@ -39,14 +37,31 @@ function login() {
     if (res.message == "success") {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
-      alert("Succesvol ingelogd");
-      showPage("homePage");
+      setCookie("role", 1, 365);
+      alert("Succesvol ingelogd als gast");
       getUser();
-      showPage("uitloglink");
-      hidePage("inloglink");
-      hidePage("registreerlink");
-      loggedIn(1);
-      inlogWaarde = 1;
+    } else {
+      console.log(res.message);
+      alert(res.message);
+    }
+  });
+}
+function login1() {
+  // Fetch data from html
+  data = {
+    Email: getValue("Email2"),
+    Wachtwoord: getValue("Wachtwoord2"),
+  };
+  // Submit data to API
+  api("auth1", "POST", data).then((res) => {
+    if (res.message == "success") {
+      //Save the received JWT in a cookie
+      setCookie("token", res.access_token, 365);
+      setCookie("role", 2, 365);
+      alert("Succesvol ingelogd als medewerker");
+      getUser();
+      hidePage("homePage");
+      showPage("medewerkerPage");
     } else {
       console.log(res.message);
     }
@@ -70,42 +85,58 @@ async function getUser() {
 
   const data = await response.json();
   console.log(data);
-  console.log(data.GastenAccount.Achternaam);
-  if (data.message == "Successvol") {
-    inlogWaarde = 1;
-    loggedIn(1);
-    showPage("uitloglink");
-    hidePage("inloglink");
-    hidePage("registreerlink");
+  if (getCookie("role") == 1) {
+    loggedIn();
     document.getElementById(
       "Voornaam"
     ).textContent = `Ingelogd als : ${data.GastenAccount.Voornaam}`;
     document.getElementById("Achternaam").textContent =
       data.GastenAccount.Achternaam;
+    return;
   }
-  console.log(inlogWaarde);
+  if (getCookie("role") == 2) {
+    loggedIn();
+
+    return;
+  } else {
+    loggedIn();
+    return;
+  }
 }
 
 function logout() {
   getCookie("token");
   deleteCookie("token");
+  getCookie("role");
+  deleteCookie("role");
   getUser();
   alert("Succesvol uitgelogd");
-  loggedIn(0);
-  inlogWaarde = 0;
 }
 
-function loggedIn(inlogWaarde) {
-  if (inlogWaarde == 1) {
-    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+function loggedIn() {
+  if (getCookie("role") == 1) {
+    console.log(`Role is nu ${getCookie("role")}`);
     showPage("uitloglink");
-    return true;
+    hidePage("teamlink");
+    showPage("homePage");
+    hidePage("inloglink");
+    hidePage("registreerlink");
+    return;
+  }
+  if (getCookie("role") == 2) {
+    showPage("medewerkerPage");
+    hidePage("homePage");
+    console.log(`Role is nu ${getCookie("role")}`);
+    return;
   } else {
-    console.log(`inlogWaarde is nu ${inlogWaarde}`);
+    console.log(`Role is nu ${getCookie("role")}`);
     showPage("inloglink");
+    showPage("homePage");
     showPage("registreerlink");
     hidePage("uitloglink");
-    return false;
+    showPage("teamlink");
+    hidePage("medewerkerPage");
+    return;
   }
 }
 
@@ -126,6 +157,7 @@ function hidePage(id) {
 function bindEvents() {
   connectButton("register", register);
   connectButton("login", login);
+  connectButton("login1", login1);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

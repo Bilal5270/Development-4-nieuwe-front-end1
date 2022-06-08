@@ -38,7 +38,7 @@ function register1(e) {
 
   // Submit data to API
   api("tafels", "POST", data).then((res) => {
-    if (res.message == "succes") {
+    if (res.message == "Succesvol tafel toegevoegd") {
       alert("Tafel created");
     }
   });
@@ -112,10 +112,16 @@ async function getUser() {
     if (getCookie("role") == 2) {
       loggedIn();
       return;
-    } else {
-      loggedIn();
-      return;
     }
+  }
+  if (data.msg == "Token has expired") {
+    logout();
+  }
+  if (
+    data.msg ==
+    "Bad Authorization header. Expected 'Authorization: Bearer <JWT>'"
+  ) {
+    logout();
   }
 }
 
@@ -152,6 +158,7 @@ function loggedIn() {
     hidePage("uitloglink");
     showPage("teamlink");
     hidePage("medewerkerPage");
+    hidePage("tafelPage");
     return;
   }
 }

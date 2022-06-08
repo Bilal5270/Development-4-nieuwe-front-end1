@@ -129,6 +129,7 @@ function loggedIn() {
     showPage("registreerlink");
     hidePage("uitloglink");
     showPage("teamlink");
+    hidePage("medewerkerPage");
     return;
   }
 }

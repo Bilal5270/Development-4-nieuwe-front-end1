@@ -112,10 +112,12 @@
         </div>
         <button id="homepageButton" onclick="showPage('homePage')">Terug naar homepage</button>
     </div>
+    <!-- Homepage voor medewerkers -->
     <div id="medewerkerPage">
         <div class="box">
             <ul type="none">
                 <li id="uitloglink1"><a onclick="logout()">Uitloggen</a></li>
+                <li id="autolink"><a onclick="showPage('tafelPage'),hidePage('medewerkerPage')">Tafel toevoegen</a></li>
                 <h3 id="inlognaam">Voornaam Achternaam</h3>
             </ul>
         </div>
@@ -130,6 +132,33 @@
             </div>
         </div>
         </div>
+         <!-- Register page voor tafels toevoegen -->
+    <div class="container hidden" id="tafelPage">
+        <div class="input">
+            <span class="label">Binnen of buiten:</span>
+            <input type="text" name="Binnen" id="Binnen">
+        </div>
+        <div class="input">
+            <span class="label">Stoelen of banken:</span>
+            <input type="text" name="Stoelen" id="Stoelen">
+        </div>
+        <div class="input">
+            <span class="label">Ingangsdatum:</span>
+            <input type="text" name="Ingangsdatum" id="Ingangsdatum">
+        </div>
+        <div class="input">
+            <span class="label">Hoge of lage zitplekken:</span>
+            <input type="text" name="Hoog" id="Hoog">
+        </div>
+        <div class="input">
+            <span class="label">Aantal zitplekken:</span>
+            <input type="text" name="Zitplekken" id="Zitplekken">
+        </div>
+        <div class="input">
+            <button id="register1">Voeg tafel toe</button>
+        </div>
+        <button id="medewerkerpageButton" onclick="showPage('medewerkerPage')">Terug naar medewerkersportaal</button>
+    </div>
     
 </body>
 <script src="main.js"></script>

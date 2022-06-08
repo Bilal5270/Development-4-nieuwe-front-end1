@@ -26,6 +26,24 @@ function register(e) {
   });
 }
 
+function register1(e) {
+  // Fetch data from html
+  data = {
+    Binnen: getValue("Binnen"),
+    Stoelen: getValue("Stoelen"),
+    Ingangsdatum: getValue("Ingangsdatum"),
+    Hoog: getValue("Hoog"),
+    AantalPersonen: getValue("Zitplekken"),
+  };
+
+  // Submit data to API
+  api("tafels", "POST", data).then((res) => {
+    if (res.message == "succes") {
+      alert("Tafel created");
+    }
+  });
+}
+
 function login() {
   // Fetch data from html
   data = {
@@ -85,25 +103,29 @@ async function getUser() {
 
   const data = await response.json();
   console.log(data);
-  if (getCookie("role") == 1) {
-    loggedIn();
-    return;
-  }
-  if (getCookie("role") == 2) {
-    loggedIn();
-    return;
-  } else {
-    loggedIn();
-    return;
+  if (data.message == "Successvol") {
+    if (getCookie("role") == 1) {
+      loggedIn();
+      console.log(data.User.Voornaam);
+      return;
+    }
+    if (getCookie("role") == 2) {
+      loggedIn();
+      return;
+    } else {
+      loggedIn();
+      return;
+    }
   }
 }
 
 function logout() {
-  getCookie("token");
+  // getCookie("token");
   deleteCookie("token");
-  getCookie("role");
+  // getCookie("role");
   deleteCookie("role");
-  getUser();
+  // getUser();
+  loggedIn();
   alert("Succesvol uitgelogd");
 }
 
@@ -150,6 +172,7 @@ function hidePage(id) {
 
 function bindEvents() {
   connectButton("register", register);
+  connectButton("register1", register1);
   connectButton("login", login);
   connectButton("login1", login1);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));

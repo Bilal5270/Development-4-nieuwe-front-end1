@@ -1,3 +1,4 @@
+// Functionality to add a user to the database
 function register(e) {
   // Check if passwords match
   if (getValue("Wachtwoord") !== getValue("HerhaalWachtwoord")) {
@@ -26,6 +27,7 @@ function register(e) {
   });
 }
 
+// Functionality to add a table to the database
 function register1(e) {
   // Fetch data from html
   data = {
@@ -108,14 +110,14 @@ async function getUser() {
       loggedIn();
       document.getElementById(
         "userName"
-      ).textContent = `Welkom ${data.User.Voornaam} `;
+      ).textContent = `Welkom ${data.User.Voornaam} ${data.User.Achternaam} `;
       return;
     }
     if (getCookie("role") == 2) {
       loggedIn();
       document.getElementById(
         "inlognaam"
-      ).textContent = `Welkom ${data.User.Voornaam} `;
+      ).textContent = `Welkom ${data.User.Voornaam} ${data.User.Achternaam}`;
       return;
     }
   }
@@ -137,7 +139,7 @@ function logout() {
   deleteCookie("role");
   // getUser();
   loggedIn();
-  alert("Succesvol uitgelogd");
+  // alert("Succesvol uitgelogd");
 }
 
 function loggedIn() {

@@ -1,175 +1,187 @@
-body{
-    font-family: latha;
-    color: white;
-    background: linear-gradient( rgba(0,0,0,0.95),rgba(0,0,0,0.65),rgba(0,0,0,0.35),rgba(0,0,0,0)),
-    url(https://mevanrestaurant.com/images/kebab03.jpg)no-repeat;
-    background-size: cover;
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: block;
-    
-
+body {
+  font-family: latha;
+  color: white;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.95),
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0)
+    ),
+    url(https://mevanrestaurant.com/images/kebab03.jpg) no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: block;
 }
 
 .CursorP {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-p{
-    color: #000;
+p {
+  color: #000;
 }
-#medewerkerPage{
-    display: none;
-}
-
-.container{
-    position: absolute;
-    display: inline-block;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #F5F5F5;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 2px 2px 4px #000;
-    min-width: 200px;
-    min-height: 150px;
+#medewerkerPage {
+  display: none;
 }
 
-#registerPage{
-    margin-top: 150px;
-    margin-bottom: 150px;
+.container {
+  position: absolute;
+  display: inline-block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #000;
+  min-width: 200px;
+  min-height: 150px;
+}
+
+.menu {
+    width: 1000px;
+    height: 700px;
+}
+
+#registerPage {
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 .input {
-    margin: 10px;
+  margin: 10px;
 }
 
 .label {
-    display: block;
-    font-size: 1em;
-    color: #666;
-    margin-bottom: 2px;
+  display: block;
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 2px;
 }
 
-input{
-    font-size: 1.4em;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: #eee;
-    width: 300px;
+input {
+  font-size: 1.4em;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #eee;
+  width: 300px;
 }
 
-button{
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    cursor: pointer;
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
 }
 
-#uitloglink{
-    display: none;
+#uitloglink {
+  display: none;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-.box{
-    width: 1000px;
-   float: right;
-   border: 1px solid none;
+.box {
+  width: 1000px;
+  float: right;
+  border: 1px solid none;
 }
 
-.box ul li{
-    width: 90px;
-    float: left;
-    margin: 10px auto ;
-    text-align: center;
+.box ul li {
+  width: auto;
+  float: left;
+  margin: 5px;
+  text-align: center;
 }
 
-.box ul li a{
-    text-decoration: none;
-    color: darkgray;
-
+.box ul li a {
+  text-decoration: none;
+  color: darkgray;
 }
 
-.box ul h7{
-    color: darkgray;
-    padding: 5px;
+.box ul h7 {
+  color: darkgray;
+  padding: 5px;
 }
 
-.box ul h8, .box ul h9{
-    color: darkgray;
+.box ul h8,
+.box ul h9 {
+  color: darkgray;
 }
 
-.userName{
-    margin: 12px auto;
-    margin-right: 15px;
-    float: right;
+.userName {
+  margin: 12px auto;
+  margin-right: 15px;
+  float: right;
 }
 
-.box ul li:hover{background-color: green;}
-.box ul li a:hover{color:white;}
-
-
-#inlognaam{
-    width: 200px;
-    float: left;
-    margin: 10px auto ;
-    margin-left: 40px;
-    text-decoration: none;
-    color: whitesmoke;
+.box ul li:hover {
+  background-color: green;
+}
+.box ul li a:hover {
+  color: white;
 }
 
-.wd{
-    width: 300px;
-    height: 700px ;
-    background-color: black;
-    opacity: 0.9;
-    padding: 55px;
+#inlognaam {
+  width: 200px;
+  float: left;
+  margin: 10px auto;
+  margin-left: 40px;
+  text-decoration: none;
+  color: whitesmoke;
 }
 
-.wd h1{
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 100px;
+.wd {
+  width: 300px;
+  height: 700px;
+  background-color: black;
+  opacity: 0.9;
+  padding: 55px;
 }
 
-.wd h4{
-    text-align: justify;
-    color:  darkgray;
-    font-weight: normal;
-}
-.wd h2{
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: normal;
-    margin: 40px auto;
+.wd h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100px;
 }
 
-.opt  form, input[type="button"]{
-    background-color: black;
-    color: white;
-    padding: 10px;
-    margin: -14px auto;
-    margin-top: 10px;
-    margin-left: -23px;
-    padding-left: 50px;
-    padding-right: 50px;
-    text-align: center;
-
+.wd h4 {
+  text-align: justify;
+  color: darkgray;
+  font-weight: normal;
+}
+.wd h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin: 40px auto;
 }
 
-form, input[type="button"]:hover{
-    background-color: green;
+.opt form,
+input[type="button"] {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  margin: -14px auto;
+  margin-top: 10px;
+  margin-left: -23px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
 }
 
-.snackbarfoto { 
-width: 75mm;
-height: 10cm;
+form,
+input[type="button"]:hover {
+  background-color: green;
+}
+
+.snackbarfoto {
+  width: 75mm;
+  height: 10cm;
 }

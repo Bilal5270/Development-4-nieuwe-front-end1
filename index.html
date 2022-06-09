@@ -13,18 +13,15 @@
 <body>
     <!-- Home pagina -->
     <div id="homePage">
-        <div class="box">
+        <div class="box CursorP">
             <ul type="none">
                 <li id="homelink"><a onclick="loggedIn()">Home</a></li>
-                <li id="menulink"><a onclick="loggedIn()">Menu</a></li>
+                <li id="menulink"><a onclick="loggedIn(),showPage('menuPage')">Menu</a></li>
                 <li id="teamlink"> <a onclick="showPage('loginPage1'),hidePage('homePage')">Medewerkersportaal</a></li>
                 <li id="inloglink"><a onclick="hidePage('homePage'),showPage('loginPage')">Inloggen</a></li>
                 <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
                 <li id="uitloglink"><a onclick="logout()">Uitloggen</a></li>
                 <li id="userName"></li>
-                    
-                
-                
             </ul>
         </div>
         <div class="wd">
@@ -39,47 +36,55 @@
             </div>
         </div>
     </div>
+    <!-- Menu page-->
+    <div class="container hidden" id="menuPage">
+        <div >
+            <img src="./Images/menu.png" alt-="menu" class="menu">
+        </div>
+    </div>
+
+
     <!-- Register page -->
     <div class="container hidden" id="registerPage">
         <div class="input">
             <span class="label">Voornaam:</span>
-            <input type="text" name="Voornaam" id="Voornaam">
+            <input type="text" name="Voornaam" id="Voornaam" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Achternaam:</span>
-            <input type="text" name="Achternaam" id="Achternaam">
+            <input type="text" name="Achternaam" id="Achternaam" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Email:</span>
-            <input type="text" name="Email" id="Email">
+            <input type="text" name="Email" id="Email" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Wachtwoord:</span>
-            <input type="password" name="Wachtwoord" id="Wachtwoord">
+            <input type="password" name="Wachtwoord" id="Wachtwoord" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Herhaal wachtwoord:</span>
-            <input type="password" name="HerhaalWachtwoord" id="HerhaalWachtwoord">
+            <input type="password" name="HerhaalWachtwoord" id="HerhaalWachtwoord" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Straat:</span>
-            <input type="text" name="Straat" id="Straat">
+            <input type="text" name="Straat" id="Straat" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Postcode:</span>
-            <input type="text" name="Postcode" id="Postcode">
+            <input type="text" name="Postcode" id="Postcode" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Huisnummer:</span>
-            <input type="text" name="HuisNummer" id="HuisNummer">
+            <input type="text" name="HuisNummer" id="HuisNummer" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Stad:</span>
-            <input type="text" name="Stad" id="Stad">
+            <input type="text" name="Stad" id="Stad" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Telefoonnummer:</span>
-            <input type="text" name="Telefoonnummer" id="Telefoonnummer">
+            <input type="text" name="Telefoonnummer" id="Telefoonnummer" autocomplete="off">
         </div>
         <div class="input">
             <button id="register">Register</button>
@@ -91,11 +96,11 @@
     <div class="container hidden" id="loginPage">
         <div class="input">
             <span class="label">E-mail:</span>
-            <input type="text" name="Email" id="Email1">
+            <input type="text" name="Email" id="Email1" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Wachtwoord:</span>
-            <input type="password" name="Wachtwoord" id="Wachtwoord1">
+            <input type="password" name="Wachtwoord" id="Wachtwoord1" autocomplete="off">
         </div>
         <div class="input">
             <button id="login">Login</button>
@@ -107,11 +112,11 @@
     <div class="container hidden" id="loginPage1">
         <div class="input">
             <span class="label">E-mail:</span>
-            <input type="text" name="Email" id="Email2">
+            <input type="text" name="Email" id="Email2" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Wachtwoord:</span>
-            <input type="password" name="Wachtwoord" id="Wachtwoord2">
+            <input type="password" name="Wachtwoord" id="Wachtwoord2" autocomplete="off">
         </div>
         <div class="input">
             <button id="login1">Login</button>
@@ -123,7 +128,8 @@
         <div class="box">
             <ul type="none">
                 <li id="uitloglink1"><a onclick="logout()">Uitloggen</a></li>
-                <li ><a id="tafelLink" onclick="showPage('tafelPage'),hidePage('medewerkerPage')">Tafel toevoegen</a></li>
+                <li><a id="tafelLink" onclick="showPage('tafelPage'),hidePage('medewerkerPage')">Tafel toevoegen</a>
+                </li>
                 <h3 id="inlognaam"></h3>
             </ul>
         </div>
@@ -136,37 +142,37 @@
                 alt="snackbarfoto" class="snackbarfoto">
         </div>
     </div>
-    
-     <!-- Register page voor tafels toevoegen -->
+
+    <!-- Register page voor tafels toevoegen -->
     <div class="container hidden" id="tafelPage">
         <div class="input">
             <span class="label">Binnen of buiten:</span>
-            <input type="text" name="Binnen" id="Binnen">
+            <input type="text" name="Binnen" id="Binnen" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Stoelen of banken:</span>
-            <input type="text" name="Stoelen" id="Stoelen">
+            <input type="text" name="Stoelen" id="Stoelen" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Ingangsdatum:</span>
-            <input type="text" name="Ingangsdatum" id="Ingangsdatum">
+            <input type="text" name="Ingangsdatum" id="Ingangsdatum" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Hoge of lage zitplekken:</span>
-            <input type="text" name="Hoog" id="Hoog">
+            <input type="text" name="Hoog" id="Hoog" autocomplete="off">
         </div>
         <div class="input">
             <span class="label">Aantal zitplekken:</span>
-            <input type="text" name="Zitplekken" id="Zitplekken">
+            <input type="text" name="Zitplekken" id="Zitplekken" autocomplete="off">
         </div>
         <div class="input">
             <button id="register1">Voeg tafel toe</button>
         </div>
         <button id="medewerkerpageButton" onclick="showPage('medewerkerPage')">Terug naar medewerkersportaal</button>
     </div>
-            
-    
-    
+
+
+
 </body>
 <script src="main.js"></script>
 

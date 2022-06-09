@@ -118,14 +118,10 @@ async function getUser() {
       ).textContent = `Welkom ${data.User.Voornaam} `;
       return;
     }
+  } else {
+    loggedIn();
   }
   if (data.msg == "Token has expired") {
-    logout();
-  }
-  if (
-    data.msg ==
-    "Bad Authorization header. Expected 'Authorization: Bearer <JWT>'"
-  ) {
     logout();
   }
 }
@@ -163,7 +159,6 @@ function loggedIn() {
     hidePage("uitloglink");
     showPage("teamlink");
     hidePage("medewerkerPage");
-    hidePage("tafelPage");
     return;
   }
 }

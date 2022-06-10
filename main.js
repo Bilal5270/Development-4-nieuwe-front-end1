@@ -88,6 +88,26 @@ function login1() {
   });
 }
 
+function deleteTafel() {
+  // Fetch data from html
+  data = {
+    TafelId: getValue("tafelId"),
+  };
+
+  // data.TafelId;
+
+  // Submit data to API
+  api("delete/" + data.TafelId, "DELETE", data).then((res) => {
+    if (res.message == "Tafel succesvol verwijderd") {
+      alert("Succesvol tafel verwijderd");
+      hidePage("verwijderPage");
+      showPage("medewerkerPage");
+    } else {
+      console.log(res.message);
+    }
+  });
+}
+
 const APIME = "http://localhost:5000/me";
 
 async function getUser() {
@@ -184,7 +204,7 @@ function bindEvents() {
   connectButton("register1", register1);
   connectButton("login", login);
   connectButton("login1", login1);
-  connectButton("tafelLink", showPage("tafelPage"));
+  connectButton("delete", deleteTafel);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

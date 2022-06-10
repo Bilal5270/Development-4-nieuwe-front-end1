@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css" />
-
+    <link rel="icon" type="image/x-icon" href="Development-4-nieuwe-front-end1\favicon.ico">
     <title>Bilal's Kebab</title>
 </head>
 
@@ -130,6 +130,7 @@
                 <li id="uitloglink1"><a onclick="logout()">Uitloggen</a></li>
                 <li ><a id="tafelLink" onclick="showPage('tafelPage'),hidePage('medewerkerPage')">Tafel toevoegen</a></li>
                 <li ><a id="tafelWijzigen">Tafel eigenschappen wijzigen</a></li>
+                <li ><a id="verwijderlink" onclick="hidePage('medewerkerPage'),showPage('verwijderPage')">Tafel verwijderen</a></li>
                 <li ><a id="reserveringenlink">Alle reserveringen bekijken</a></li>
                 <h3 id="inlognaam"></h3>
             </ul>
@@ -172,6 +173,17 @@
         <button id="medewerkerpageButton" onclick="showPage('medewerkerPage')">Terug naar medewerkersportaal</button>
     </div>
 
+    <!-- Verwijder pagina voor tafels -->
+    <div class="container hidden" id="verwijderPage">
+        <div class="input">
+            <span class="label">Welke tafel wil je verwijderen?</span>
+            <input type="text" name="tafelId" id="tafelId" autocomplete="off">
+        </div>
+        <div class="input">
+            <button id="delete">Verwijder tafel</button>
+        </div>
+        <button id="medewerkerpageButton" onclick="showPage('medewerkerPage')">Terug naar medewerkersportaal</button>
+    </div>
 
 
 </body>

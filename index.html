@@ -184,33 +184,36 @@
             <input type="time" name="Tijd" id="Tijd" autocomplete="off">
         </div>
         <div class="input">
-            <label for="cars" class="input">Choose a car:</label>
-            <select name="cars" id="cars">
-              <optgroup label="Swedish Cars">
+            <span class="label">Aantal personen</span>
+            <input type="number" name="Ingangsdatum" id="Ingangsdatum" autocomplete="off">
+        </div>
+        <div class="input">
+            <label for="Taxiservice" class="label">Taxiservice</label>
+            <select class="label1" name="Taxiservice" id="Taxiservice">
                 <option value="Nee">Nee</option>
                 <option value="Ja">Ja</option>
-              </optgroup>
             </select>
         </div>
         <div class="input">
-            <span class="label">Aantal personen</span>
-            <input type="text" name="Ingangsdatum" id="Ingangsdatum" autocomplete="off">
+             <label for="binnenBuiten" class="label">Binnen of Buiten:</label>
+            <select class="label1" name="binnenBuiten" id="binnenBuiten">
+                <option value="Binnen">Binnen</option>
+                <option value="Buiten">Buiten</option>
+            </select>
         </div>
         <div class="input">
-            <span class="label">Hoge of lage zitplekken</span>
-            <input type="text" name="Hoog" id="Hoog" autocoXmplete="off">
+            <label for="stoelenBanken" class="label">Stoelen of Banken:</label>
+            <select class="label1" name="stoelenBanken" id="stoelenBanken">
+                <option value="Stoelen">Stoelen</option>
+                <option value="Banken">Banken</option>
+            </select>
         </div>
         <div class="input">
-            <span class="label">Binnen of buiten</span>
-            <input type="text" name="Zitplekken" id="Zitplekken" autocomplete="off">
-        </div>
-        <div class="input">
-            <span class="label">Stoelen of Banken</span>
-            <input type="text" name="Zitplekken" id="Zitplekken" autocomplete="off">
-        </div>
-        <div class="input">
-            <span class="label">Hoge of lage Tafel</span>
-            <input type="text" name="Zitplekken" id="Zitplekken" autocomplete="off">
+            <label for="hoogLaag" class="label">type tafel:</label>
+            <select class="label1" name="hoogLaag" id="hoogLaag">
+                <option value="Hoog">Hoog   </option>
+                <option value="Laag">Laag   </option>
+            </select>
         </div>
         <div class="input">
             <button id="register1">Voeg tafel toe</button>

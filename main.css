@@ -67,13 +67,18 @@ p {
   margin-bottom: 2px;
 }
 
-input {
+
+input, .label1 {
   font-size: 1.4em;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
   background-color: #eee;
   width: 300px;
+}
+
+.label1 {
+  width: 320px;
 }
 
 button {

@@ -102,6 +102,7 @@ function deleteTafel() {
       alert("Succesvol tafel verwijderd");
       hidePage("verwijderPage");
       showPage("medewerkerPage");
+      getUser();
     } else {
       console.log(res.message);
     }

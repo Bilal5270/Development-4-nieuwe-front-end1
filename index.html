@@ -31,8 +31,16 @@
             <h2>Reservation</h2>
             <div class="opt">
                 <form action="" method="post">
+<<<<<<< HEAD
                     <input type="button" value="Reserveer nu!" class="CursorP" id="reserveerknop" onclick="showPage('reservationPage'),hidePage('homePage')">
                     <h3 id="tekstReservering">Om te reserveren moet je een account hebben en ingelogd zijn!</h3>
+=======
+<<<<<<< HEAD
+                    <input type="button" value="Reserveer nu!" class="CursorP" id="reserveerknop">
+=======
+                    <input type="button" value="Reserveer nu!" class="CursorP" id="reservationButton" onclick="hidePage('homePage'),showPage('reservationPage')">
+>>>>>>> 4d82848 (reservationPage)
+>>>>>>> 34ee71f (reservationPage)
                 </form>
             </div>
         </div>
@@ -173,7 +181,40 @@
         </div>
         <button id="medewerkerpageButton" onclick="showPage('medewerkerPage')">Terug naar medewerkersportaal</button>
     </div>
-
+    <!-- Reservation Page-->
+    <div class="container hidden" id="reservationPage">
+        <div class="input">
+            <span class="label">Datum reservering</span>
+            <input type="text" name="Binnen" id="Binnen" autocomplete="off">
+        </div>
+        <div class="input">
+            <span class="label">Taxiservice</span>
+            <input type="text" name="Stoelen" id="Stoelen" autocomplete="off">
+        </div>
+        <div class="input">
+            <span class="label">Aantal personen</span>
+            <input type="text" name="Ingangsdatum" id="Ingangsdatum" autocomplete="off">
+        </div>
+        <div class="input">
+            <span class="label">Hoge of lage zitplekken</span>
+            <input type="text" name="Hoog" id="Hoog" autocoXmplete="off">
+        </div>
+        <div class="input">
+            <span class="label">Binnen of buiten</span>
+            <input type="text" name="Zitplekken" id="Zitplekken" autocomplete="off">
+        </div>
+        <div class="input">
+            <span class="label">Stoelen of Banken</span>
+            <input type="text" name="Zitplekken" id="Zitplekken" autocomplete="off">
+        </div>
+        <div class="input">
+            <span class="label">Hoge of lage Tafel</span>
+            <input type="text" name="Zitplekken" id="Zitplekken" autocomplete="off">
+        </div>
+        <div class="input">
+            <button id="register1">Voeg tafel toe</button>
+        </div>
+    </div>
     <!-- Verwijder pagina voor tafels -->
     <div class="container hidden" id="verwijderPage">
         <div class="input">

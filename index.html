@@ -31,16 +31,8 @@
             <h2>Reservation</h2>
             <div class="opt">
                 <form action="" method="post">
-<<<<<<< HEAD
                     <input type="button" value="Reserveer nu!" class="CursorP" id="reserveerknop" onclick="showPage('reservationPage'),hidePage('homePage')">
                     <h3 id="tekstReservering">Om te reserveren moet je een account hebben en ingelogd zijn!</h3>
-=======
-<<<<<<< HEAD
-                    <input type="button" value="Reserveer nu!" class="CursorP" id="reserveerknop">
-=======
-                    <input type="button" value="Reserveer nu!" class="CursorP" id="reservationButton" onclick="hidePage('homePage'),showPage('reservationPage')">
->>>>>>> 4d82848 (reservationPage)
->>>>>>> 34ee71f (reservationPage)
                 </form>
             </div>
         </div>
@@ -185,11 +177,20 @@
     <div class="container hidden" id="reservationPage">
         <div class="input">
             <span class="label">Datum reservering</span>
-            <input type="text" name="Binnen" id="Binnen" autocomplete="off">
+            <input type="date" name="Datum" id="Datum" autocomplete="off">
         </div>
         <div class="input">
-            <span class="label">Taxiservice</span>
-            <input type="text" name="Stoelen" id="Stoelen" autocomplete="off">
+            <span class="label">Tijd</span>
+            <input type="time" name="Tijd" id="Tijd" autocomplete="off">
+        </div>
+        <div class="input">
+            <label for="cars" class="input">Choose a car:</label>
+            <select name="cars" id="cars">
+              <optgroup label="Swedish Cars">
+                <option value="Nee">Nee</option>
+                <option value="Ja">Ja</option>
+              </optgroup>
+            </select>
         </div>
         <div class="input">
             <span class="label">Aantal personen</span>

@@ -132,6 +132,7 @@ async function getUser() {
       document.getElementById(
         "userName"
       ).textContent = `Welkom ${data.User.Voornaam} ${data.User.Achternaam} `;
+      connectButton("reserveerknop", showPage("reservationPage"),hidePage("homePage"));
       return;
     }
     if (getCookie("role") == 2) {
@@ -182,6 +183,7 @@ function loggedIn() {
     hidePage("uitloglink");
     showPage("teamlink");
     hidePage("medewerkerPage");
+    connectButton("reserveerknop", alert("Je moet een account hebben om te reserveren."));
     return;
   }
 }
@@ -206,6 +208,7 @@ function bindEvents() {
   connectButton("login", login);
   connectButton("login1", login1);
   connectButton("delete", deleteTafel);
+
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

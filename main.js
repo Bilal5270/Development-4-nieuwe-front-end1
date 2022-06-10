@@ -155,7 +155,7 @@ function logout() {
   deleteCookie("role");
   // getUser();
   loggedIn();
-  // alert("Succesvol uitgelogd");
+  alert("Je bent uitgelogd");
 }
 
 function loggedIn() {

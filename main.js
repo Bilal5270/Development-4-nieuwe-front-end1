@@ -156,6 +156,7 @@ function logout() {
   deleteCookie("role");
   // getUser();
   loggedIn();
+  hidePage("reserveerknop");
   alert("Je bent uitgelogd");
 }
 

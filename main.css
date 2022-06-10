@@ -27,6 +27,10 @@ p {
   display: none;
 }
 
+#reserveerknop{
+  display: none;
+}
+
 .container {
   position: absolute;
   display: inline-block;

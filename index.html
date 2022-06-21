@@ -21,7 +21,7 @@
                 <li id="inloglink"><a onclick="hidePage('homePage'),showPage('loginPage')">Inloggen</a></li>
                 <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
                 <li id="uitloglink"><a onclick="logout()">Uitloggen</a></li>
-                <li id="userName"></li>
+                <li class="userName" id="userName"></li>
             </ul>
         </div>
         <div class="wd">
@@ -133,12 +133,12 @@
                 <li ><a id="tafelWijzigen">Tafel eigenschappen wijzigen</a></li>
                 <li ><a id="verwijderlink" onclick="hidePage('medewerkerPage'),showPage('verwijderPage')">Tafel verwijderen</a></li>
                 <li ><a id="reserveringenlink">Alle reserveringen bekijken</a></li>
-                <h3 id="inlognaam"></h3>
+                <li class="inlogNaam" id="inlognaam"></li>
             </ul>
         </div>
         <div class="wd">
             <h1>Bilal's Kebab</h1>
-            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant die gespecialiseerd zijn in het maken van
+            <h4>Welkom op Bilal's Kebab! Wij zijn een Egyptisch restaurant gespecialiseerd in het maken van
                 kebab en arabische gerechten.</h4>
             <h2>Je bent hier op de medewerkerspagina.</h2>
             <img src="https://www.het-friethuys.nl/wp-content/uploads/2021/09/Luuk-Het-Friethuys-Oss-Schaijk.jpg"
@@ -191,7 +191,14 @@
         </div>
         <div class="input">
             <span class="label">Tijd</span>
-            <input type="time" name="Tijd" id="Tijd" autocomplete="off">
+            <select class="label1">
+                <option value="1">16:00-18:00</option>
+                <option value="2">17:00-19:00</option>
+                <option value="3">18:00-20:00</option>
+                <option value="4">19:00-21:00</option>
+                <option value="5">20:00-22:00</option>
+                <option value="6">21:00-23:00</option>
+            </select>
         </div>
         <div class="input">
             <span class="label">Aantal personen</span>

@@ -101,6 +101,12 @@ button {
   float: right;
   border: 1px solid none;
 }
+.userName {
+ padding-left: 600px;
+}
+.inlognaam{
+  padding-left: 100px;
+}
 
 .box ul li {
   width: auto;
@@ -124,15 +130,7 @@ button {
   color: darkgray;
 }
 
-.userName {
-  margin: 12px auto;
-  margin-right: 15px;
-  float: right;
-}
 
-.box ul li:hover {
-  background-color: green;
-}
 .box ul li a:hover {
   color: white;
 }

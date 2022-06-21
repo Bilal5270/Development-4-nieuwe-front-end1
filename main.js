@@ -89,6 +89,29 @@ function login1() {
   });
 }
 
+function addReservering() {
+
+  data = {
+    DatumReservering: getValue("Datum"),
+    Tijd: getValue("Tijd"),
+    Taxiservice: getValue("Taxiservice"),
+    AantalPersonen: getValue("AantalPersonen"),
+    Binnen: getValue("binnenBuiten"),
+    Stoelen: getValue("stoelenBanken"),
+    Hoog: getValue("hoogLaag")
+  }
+
+  api("reservations", "POST", data).then((res) => {
+    if (res.message == "Succesvol gereserveerd") {
+      alert("Succesvol gereserveerd")
+      getUser();
+    } else {
+      console.log(res.message);
+    }
+  })
+
+}
+
 function deleteTafel() {
   // Fetch data from html
   data = {
@@ -228,6 +251,7 @@ function bindEvents() {
   connectButton("login1", login1);
   connectButton("delete", deleteTafel);
   connectButton("patch", wijzigTafel);
+  connectButton("reserveer", addReservering)
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

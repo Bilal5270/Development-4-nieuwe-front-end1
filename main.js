@@ -31,10 +31,10 @@ function register(e) {
 function register1(e) {
   // Fetch data from html
   data = {
-    Binnen: getValue("Binnen"),
-    Stoelen: getValue("Stoelen"),
+    Binnen: getValue("binnenBuiten"),
+    Stoelen: getValue("stoelenBanken"),
     Ingangsdatum: getValue("Ingangsdatum"),
-    Hoog: getValue("Hoog"),
+    Hoog: getValue("hoogLaag"),
     AantalPersonen: getValue("Zitplekken"),
   };
 
@@ -42,6 +42,7 @@ function register1(e) {
   api("tafels", "POST", data).then((res) => {
     if (res.message == "Succesvol tafel toegevoegd") {
       alert("Tafel created");
+      console.log(data);
     }
   });
 }
@@ -94,8 +95,6 @@ function deleteTafel() {
     TafelId: getValue("tafelId"),
   };
 
-  // data.TafelId;
-
   // Submit data to API
   api("delete/" + data.TafelId, "DELETE", data).then((res) => {
     if (res.message == "Tafel succesvol verwijderd") {
@@ -105,6 +104,24 @@ function deleteTafel() {
       getUser();
     } else {
       console.log(res.message);
+    }
+  });
+}
+// Functie om de eigenschappen van een tafel te wijzigen
+async function wijzigTafel(e) {
+  data = {
+    TafelId: getValue("tafelId1"),
+    Binnen: getValue("binnenBuiten1"),
+    Stoelen: getValue("stoelenBanken1"),
+    Hoog: getValue("hoogLaag1"),
+    AantalPersonen: getValue("Zitplekken1"),
+  };
+
+  // Submit data to API
+
+  api("patchtafel/" + data.TafelId, "PATCH", data).then((res) => {
+    if (res.message == "Succesvol tafeleigenschappen gewijzigd") {
+      alert(`Succesvol tafeleigenschappen van ${data.TafelId} gewijzigd`);
     }
   });
 }
@@ -210,7 +227,7 @@ function bindEvents() {
   connectButton("login", login);
   connectButton("login1", login1);
   connectButton("delete", deleteTafel);
-
+  connectButton("patch", wijzigTafel);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

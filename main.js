@@ -90,7 +90,6 @@ function login1() {
 }
 
 function addReservering() {
-
   data = {
     DatumReservering: getValue("Datum"),
     Tijd: getValue("Tijd"),
@@ -98,18 +97,17 @@ function addReservering() {
     AantalPersonen: getValue("AantalPersonen"),
     Binnen: getValue("binnenBuiten"),
     Stoelen: getValue("stoelenBanken"),
-    Hoog: getValue("hoogLaag")
-  }
+    Hoog: getValue("hoogLaag"),
+  };
 
   api("reservations", "POST", data).then((res) => {
     if (res.message == "Succesvol gereserveerd") {
-      alert("Succesvol gereserveerd")
+      alert("Succesvol gereserveerd");
       getUser();
     } else {
       console.log(res.message);
     }
-  })
-
+  });
 }
 
 function deleteTafel() {
@@ -147,6 +145,53 @@ async function wijzigTafel(e) {
       alert(`Succesvol tafeleigenschappen van ${data.TafelId} gewijzigd`);
     }
   });
+}
+
+const APIR = "http://localhost:5000/reserveringen";
+
+async function getReservations() {
+  const response = await fetch(APIR, {
+    method: "GET",
+
+    mode: "cors",
+
+    headers: {
+      "Content-Type": "application/json",
+
+      Authorization: "Bearer " + getCookie("token"),
+    },
+  });
+
+  const data = await response.json();
+  if (data.message == "Successvol") {
+    document.getElementById("reservations").innerHTML = data.Reservering.map(
+      (data) =>
+        `
+        <tr>
+        <th>Reservatie ID</th>
+        <th>Gast ID</th>
+        <th>Datum Reservering</th>
+        <th>Tijd</th>
+        <th>Taxiservice</th>
+        <th>AantalPersonen</th>
+        <th>Binnen</th>
+        <th>Stoelen</th>
+        <th>Hoog</th>
+      </tr>
+      <tr>
+
+        <td >${data.ReserveringID}</td>
+        <td >${data.GastID}</td>
+        <td >${data.DatumReservering}</td>
+        <td >${data.Tijd}</td>
+        <td >${data.Taxiservice}</td>
+        <td >${data.AantalPersonen}</td>
+        <td >${data.Binnen}</td>
+        <td >${data.Stoelen}</td>
+        <td >${data.Hoog}</td>
+      </tr>`
+    ).join("");
+  }
 }
 
 const APIME = "http://localhost:5000/me";
@@ -188,7 +233,6 @@ async function getUser() {
     logout();
   }
 }
-
 function logout() {
   // getCookie("token");
   deleteCookie("token");
@@ -251,7 +295,8 @@ function bindEvents() {
   connectButton("login1", login1);
   connectButton("delete", deleteTafel);
   connectButton("patch", wijzigTafel);
-  connectButton("reserveer", addReservering)
+  connectButton("reserveer", addReservering);
+  connectButton("reserveringenlink", getReservations);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

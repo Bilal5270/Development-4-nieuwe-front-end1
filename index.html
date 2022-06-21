@@ -132,7 +132,7 @@
                 <li ><a id="tafelLink" onclick="showPage('tafelPage'),hidePage('medewerkerPage')">Tafel toevoegen</a></li>
                 <li ><a id="tafelWijzigen" onclick="showPage('patchPage'),hidePage('medewerkerPage')">Tafel eigenschappen wijzigen</a></li>
                 <li ><a id="verwijderlink" onclick="hidePage('medewerkerPage'),showPage('verwijderPage')">Tafel verwijderen</a></li>
-                <li ><a id="reserveringenlink">Alle reserveringen bekijken</a></li>
+                <li ><a id="reserveringenlink" onclick="hidePage('medewerkerPage'),showPage('reservations')">Alle reserveringen bekijken</a></li>
                 <li class="inlogNaam" id="inlognaam"></li>
             </ul>
         </div>
@@ -249,9 +249,38 @@
         </div>
         <button id="medewerkerpageButton" onclick="showPage('medewerkerPage')">Terug naar medewerkersportaal</button>
     </div>
+     <!-- Alle reservaties inzien -->
+    <div id="reservations">
+    <h1 class="heading"> Alle <span>Reservaties</span> </h1>
+    <!-- <table id="customers">
+    
+        <tr>
+        <th>Reservatie ID</th>
+        <th>Gast ID</th>
+        <th>Datum Reservering</th>
+        <th>Tijd</th>
+        <th>Taxiservice</th>
+        <th>AantalPersonen</th>
+        <th>Binnen</th>
+        <th>Stoelen</th>
+        <th>Hoog</th>
+      </tr>
+      <tr>
 
+        <td id="ID00">  </td>
+        <td id="userid0"></td>
+        <td id="voornaamm0"></td>
+        <td id="begindatumm0"></td>
+        <td id="einddatumm0"></td>
+        <td id="AutoID00"></td>
+        <td id="Autonaam0"></td>
+        <td id="modell0"></td>
+        <td id="autokleur0"></td>
+        <td id="vrijekm0"></td>
+      </tr>
 
-
+    </table> --> 
+    </div>
     <!-- Patch pagina voor tafels -->
     <div class="container hidden" id="patchPage">
         <div class="input">

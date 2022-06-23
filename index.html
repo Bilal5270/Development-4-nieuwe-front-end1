@@ -17,6 +17,7 @@
             <ul type="none">
                 <li id="homelink"><a onclick="loggedIn()">Home</a></li>
                 <li id="menulink"><a onclick="loggedIn(),showPage('menuPage')">Menu</a></li>
+                <li id="eigenreserveringenlink"><a onclick="showPage('reservations1'),hidePage('homePage')">Mijn reserveringen bekijken</a></li>
                 <li id="teamlink"> <a onclick="showPage('loginPage1'),hidePage('homePage')">Medewerkersportaal</a></li>
                 <li id="inloglink"><a onclick="hidePage('homePage'),showPage('loginPage')">Inloggen</a></li>
                 <li id="registreerlink"><a onclick="hidePage('homePage'),showPage('registerPage')">Registeren</a></li>
@@ -249,7 +250,7 @@
         </div>
         <button id="medewerkerpageButton" onclick="showPage('medewerkerPage')">Terug naar medewerkersportaal</button>
     </div>
-     <!-- Alle reservaties inzien -->
+    <!-- Alle reservaties inzien -->
     <div id="reservations">
     <h1 class="heading"> Alle <span>Reservaties</span> </h1>
     <!-- <table id="customers">
@@ -280,6 +281,14 @@
       </tr>
 
     </table> --> 
+    </div>
+    <!-- Mijn eigen reserveringen zien -->
+    <div id="reservations1">
+        <h1 class="heading"> Jouw <span>Reserveringen</span> </h1>
+        <div id="reservations2">
+
+        </div>
+    
     </div>
     <!-- Patch pagina voor tafels -->
     <div class="container hidden" id="patchPage">

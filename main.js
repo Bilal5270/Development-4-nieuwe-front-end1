@@ -193,6 +193,50 @@ async function getReservations() {
     ).join("");
   }
 }
+const APIMER = "http://localhost:5000/me/reserveringen";
+
+async function getMyReservations() {
+  const response = await fetch(APIMER, {
+    method: "GET",
+
+    mode: "cors",
+
+    headers: {
+      "Content-Type": "application/json",
+
+      Authorization: "Bearer " + getCookie("token"),
+    },
+  });
+
+  const data = await response.json();
+  if (data.message == "Successvol") {
+    document.getElementById("reservations2").innerHTML = data.Reservering.map(
+      (data) =>
+        `
+        <tr>
+        <th>Reservatie ID</th>
+        <th>Datum Reservering</th>
+        <th>Tijd</th>
+        <th>Taxiservice</th>
+        <th>AantalPersonen</th>
+        <th>Binnen</th>
+        <th>Stoelen</th>
+        <th>Hoog</th>
+      </tr>
+      <tr>
+
+        <td >${data.ReserveringID}</td>
+        <td >${data.DatumReservering}</td>
+        <td >${data.Tijd}</td>
+        <td >${data.Taxiservice}</td>
+        <td >${data.AantalPersonen}</td>
+        <td >${data.Binnen}</td>
+        <td >${data.Stoelen}</td>
+        <td >${data.Hoog}</td>
+      </tr>`
+    ).join("");
+  }
+}
 
 const APIME = "http://localhost:5000/me";
 
@@ -241,6 +285,7 @@ function logout() {
   // getUser();
   loggedIn();
   hidePage("reserveerknop");
+  hidePage("eigenreserveringenlink");
   alert("Je bent uitgelogd");
 }
 
@@ -251,6 +296,7 @@ function loggedIn() {
     hidePage("teamlink");
     hidePage("tekstReservering");
     showPage("reserveerknop");
+    showPage("eigenreserveringenlink");
     showPage("homePage");
     hidePage("inloglink");
     hidePage("registreerlink");
@@ -297,6 +343,7 @@ function bindEvents() {
   connectButton("patch", wijzigTafel);
   connectButton("reserveer", addReservering);
   connectButton("reserveringenlink", getReservations);
+  connectButton("eigenreserveringenlink", getMyReservations);
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

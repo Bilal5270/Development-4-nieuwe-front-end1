@@ -30,8 +30,15 @@ p {
 #reserveerknop{
   display: none;
 }
-
+#eigenreserveringenlink{
+  display: none;
+}
 #reservations{
+  display: none;
+  background-color: white;
+  color: #000;
+}
+#reservations1{
   display: none;
   background-color: white;
   color: #000;

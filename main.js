@@ -194,7 +194,7 @@ async function getReservations() {
     ).join("");
 
     nieuweHtml = "<table>" + nieuweHtml + "</table>";
-    document.getElementById("reservations3").innerHTML = nieuweHtml;
+    document.getElementById("reservations").innerHTML = nieuweHtml;
   }
 }
 const APIMER = "http://localhost:5000/me/reserveringen";
@@ -228,6 +228,26 @@ function WijzigReservering(id) {
   });
 }
 
+function deleteReserveringButton(id) {
+  // Fetch data from html
+  document.getElementById("geselecteerdeReserveringID").innerHTML = id;
+  showPage("verwijderPage1");
+}
+
+function deleteReservering(id) {
+  data = {
+    ReserveringID: document.getElementById("geselecteerdeReserveringID")
+      .innerHTML,
+  };
+
+  // Submit data to API
+  api("deletereservation/" + data.ReserveringID, "DELETE", data).then((res) => {
+    if (res.message == "Reservering succesvol verwijderd") {
+      alert("Succesvol reservering verwijderd");
+      getUser();
+    }
+  });
+}
 async function getMyReservations() {
   const response = await fetch(APIMER, {
     method: "GET",
@@ -269,7 +289,7 @@ async function getMyReservations() {
         <td >${data.Stoelen}</td>
         <td >${data.Hoog}</td>
         <td ><button onClick="WijzigReserveringButton(${data.ReserveringID})">Wijzigen</button></td>
-        <td ><button onClick="VerwijderReserveringButton(${data.ReserveringID})">Verwijderen</button></td>
+        <td ><button onClick="deleteReserveringButton(${data.ReserveringID})">Verwijderen</button></td>
       </tr>`
     ).join("");
 
@@ -385,6 +405,8 @@ function bindEvents() {
   connectButton("reserveer", addReservering);
   connectButton("reserveringenlink", getReservations);
   connectButton("eigenreserveringenlink", getMyReservations);
+  connectButton("delete1", deleteReservering);
+
   // connectButton("loginlink", hidePage("homepage"), showPage("loginPage"));
   // connectButton(
   //   "registreerlink",

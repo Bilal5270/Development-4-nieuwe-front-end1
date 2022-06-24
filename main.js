@@ -164,12 +164,12 @@ async function getReservations() {
 
   const data = await response.json();
   if (data.message == "Successvol") {
-    document.getElementById("reservations").innerHTML = data.Reservering.map(
+    let nieuweHtml = data.Reservering.map(
       (data) =>
         `
+        
         <tr>
         <th>Reservatie ID</th>
-        <th>Gast ID</th>
         <th>Datum Reservering</th>
         <th>Tijd</th>
         <th>Taxiservice</th>
@@ -177,11 +177,11 @@ async function getReservations() {
         <th>Binnen</th>
         <th>Stoelen</th>
         <th>Hoog</th>
+       
       </tr>
       <tr>
 
         <td >${data.ReserveringID}</td>
-        <td >${data.GastID}</td>
         <td >${data.DatumReservering}</td>
         <td >${data.Tijd}</td>
         <td >${data.Taxiservice}</td>
@@ -189,11 +189,44 @@ async function getReservations() {
         <td >${data.Binnen}</td>
         <td >${data.Stoelen}</td>
         <td >${data.Hoog}</td>
+        
       </tr>`
     ).join("");
+
+    nieuweHtml = "<table>" + nieuweHtml + "</table>";
+    document.getElementById("reservations3").innerHTML = nieuweHtml;
   }
 }
 const APIMER = "http://localhost:5000/me/reserveringen";
+
+function WijzigReserveringButton(id) {
+  document.getElementById("geselecteerdeReserveringID").innerHTML = id;
+  showPage("patchPage1");
+}
+
+function WijzigReservering(id) {
+  data = {
+    ReserveringID: document.getElementById("geselecteerdeReserveringID")
+      .innerHTML,
+    DatumReservering: getValue("Datum2"),
+    Tijd: getValue("Tijd2"),
+    Taxiservice: getValue("Taxiservice2"),
+    Binnen: getValue("binnenBuiten2"),
+    Stoelen: getValue("stoelenBanken2"),
+    Hoog: getValue("hoogLaag2"),
+    AantalPersonen: getValue("AantalPersonen2"),
+  };
+
+  console.log(data.ReserveringID);
+
+  // Submit data to API
+
+  api("patchreservering/" + data.ReserveringID, "PATCH", data).then((res) => {
+    if (res.message == "Succesvol reservering gewijzigd") {
+      alert(`Succesvol reservering met id ${data.ReserveringID} gewijzigd`);
+    }
+  });
+}
 
 async function getMyReservations() {
   const response = await fetch(APIMER, {
@@ -210,9 +243,10 @@ async function getMyReservations() {
 
   const data = await response.json();
   if (data.message == "Successvol") {
-    document.getElementById("reservations2").innerHTML = data.Reservering.map(
+    let nieuweHtml = data.Reservering.map(
       (data) =>
         `
+        
         <tr>
         <th>Reservatie ID</th>
         <th>Datum Reservering</th>
@@ -222,6 +256,7 @@ async function getMyReservations() {
         <th>Binnen</th>
         <th>Stoelen</th>
         <th>Hoog</th>
+       
       </tr>
       <tr>
 
@@ -233,8 +268,13 @@ async function getMyReservations() {
         <td >${data.Binnen}</td>
         <td >${data.Stoelen}</td>
         <td >${data.Hoog}</td>
+        <td ><button onClick="WijzigReserveringButton(${data.ReserveringID})">Wijzigen</button></td>
+        <td ><button onClick="VerwijderReserveringButton(${data.ReserveringID})">Verwijderen</button></td>
       </tr>`
     ).join("");
+
+    nieuweHtml = "<table>" + nieuweHtml + "</table>";
+    document.getElementById("reservations2").innerHTML = nieuweHtml;
   }
 }
 
@@ -341,6 +381,7 @@ function bindEvents() {
   connectButton("login1", login1);
   connectButton("delete", deleteTafel);
   connectButton("patch", wijzigTafel);
+  connectButton("patch1", WijzigReservering);
   connectButton("reserveer", addReservering);
   connectButton("reserveringenlink", getReservations);
   connectButton("eigenreserveringenlink", getMyReservations);

@@ -109,22 +109,29 @@ button {
 }
 
 .box {
-  width: 1000px;
-  float: right;
+  width: 800px;
+  float: left;
   border: 1px solid none;
+  position: absolute;
+  right: -200px; 
+}
+
+.box2{
+  width: 1000px;
+  border: 1px solid none;
+  margin-left: 100px;
 }
 .userName {
- padding-left: 600px;
+ padding-left: 50px;
 }
 .inlognaam{
-  padding-left: 100px;
+  padding-left: 50px;
 }
 
 .box ul li {
-  width: auto;
   float: left;
-  margin: 5px;
   text-align: center;
+  padding: 5px;
 }
 
 .box ul li a {
@@ -147,14 +154,33 @@ button {
   color: white;
 }
 
-#inlognaam {
-  width: 200px;
+.box2 ul li {
   float: left;
-  margin: 10px auto;
-  margin-left: 40px;
-  text-decoration: none;
-  color: whitesmoke;
+  text-align: center;
+  padding: 5px;
 }
+
+.box2 ul li a {
+  text-decoration: none;
+  color: darkgray;
+}
+
+.box2 ul h7 {
+  color: darkgray;
+  padding: 5px;
+}
+
+.box2 ul h8,
+.box2 ul h9 {
+  color: darkgray;
+}
+
+
+.box2 ul li a:hover {
+  color: white;
+}
+
+
 
 .wd {
   width: 300px;
@@ -162,6 +188,7 @@ button {
   background-color: black;
   opacity: 0.9;
   padding: 55px;
+  margin-top: 20px;
 }
 
 .wd h1 {

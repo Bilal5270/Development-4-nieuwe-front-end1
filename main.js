@@ -128,7 +128,7 @@ function deleteTafel() {
     }
   });
 }
-// Functie om de eigenschappen van een tafel te wijzigen
+// Functie om de eigenschappen van een tafel te wijzigen.
 async function wijzigTafel(e) {
   data = {
     TafelId: getValue("tafelId1"),

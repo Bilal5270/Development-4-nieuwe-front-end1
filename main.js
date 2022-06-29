@@ -59,7 +59,6 @@ function login() {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
       setCookie("role", 1, 365);
-      alert("Succesvol ingelogd als gast");
       getUser();
     } else {
       console.log(res.message);

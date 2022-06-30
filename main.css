@@ -109,17 +109,19 @@ button {
 }
 
 .box {
-  width: 800px;
+  width: 700px;
   float: left;
   border: 1px solid none;
   position: absolute;
-  right: -200px; 
+  right: -100px; 
 }
 
 .box2{
-  width: 1000px;
+  width: 700px;
   border: 1px solid none;
   margin-left: 100px;
+  position: absolute;
+  right: -30px; 
 }
 .userName {
  padding-left: 50px;

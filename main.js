@@ -78,7 +78,6 @@ function login1() {
       //Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
       setCookie("role", 2, 365);
-      alert("Succesvol ingelogd als medewerker");
       getUser();
       hidePage("homePage");
       showPage("medewerkerPage");

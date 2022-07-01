@@ -43,6 +43,21 @@ p {
   background-color: white;
   color: #000;
 }
+
+#patchPage1{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -(dialogwidth/2);
+  margin-top: -(dialogheight/2);
+}
+#verwijderPage1{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -(dialogwidth/2);
+  margin-top: -(dialogheight/2);
+}
 .container {
   position: absolute;
   display: inline-block;

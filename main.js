@@ -93,10 +93,11 @@ function addReservering() {
     Tijd: getValue("Tijd"),
     Taxiservice: getValue("Taxiservice"),
     AantalPersonen: getValue("AantalPersonen"),
-    Binnen: getValue("binnenBuiten"),
-    Stoelen: getValue("stoelenBanken"),
-    Hoog: getValue("hoogLaag"),
+    Binnen: getValue("binnenBuiten3"),
+    Stoelen: getValue("stoelenBanken3"),
+    Hoog: getValue("hoogLaag3"),
   };
+  console.log(data);
 
   api("reservations", "POST", data).then((res) => {
     if (res.message == "Succesvol gereserveerd") {
@@ -104,6 +105,7 @@ function addReservering() {
       getUser();
     } else {
       console.log(res.message);
+      alert(res.message);
     }
   });
 }

@@ -87,8 +87,8 @@ function login1() {
   });
 }
 
-var today = new Date().toISOString().split('T')[0];
-document.getElementsByName("Datum")[0].setAttribute('min', today);
+var today = new Date().toISOString().split("T")[0];
+document.getElementsByName("Datum")[0].setAttribute("min", today);
 
 function addReservering() {
   data = {
@@ -170,7 +170,7 @@ async function getReservations() {
     let nieuweHtml = data.Reservering.map(
       (data) =>
         `
-        
+
         <tr>
         <th>Reservatie ID</th>
         <th>Datum Reservering</th>

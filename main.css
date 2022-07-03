@@ -58,6 +58,9 @@ p {
   margin-left: -(dialogwidth/2);
   margin-top: -(dialogheight/2);
 }
+#hiddenButton{
+  display: none;
+}
 .container {
   position: absolute;
   display: inline-block;

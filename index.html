@@ -133,7 +133,7 @@
                 <li ><a id="tafelLink" onclick="showPage('tafelPage'),hidePage('medewerkerPage')">Tafel toevoegen</a></li>
                 <li ><a id="tafelWijzigen" onclick="showPage('patchPage'),hidePage('medewerkerPage')">Tafel eigenschappen wijzigen</a></li>
                 <li ><a id="verwijderlink" onclick="hidePage('medewerkerPage'),showPage('verwijderPage')">Tafel verwijderen</a></li>
-                <li ><a id="reserveringenlink" onclick="hidePage('medewerkerPage'),showPage('reservations')">Alle reserveringen bekijken</a></li>
+                <li ><a id="reserveringenlink" onclick="hidePage('medewerkerPage'),showPage('reservations'),showPage('hiddenButton')">Alle reserveringen bekijken</a></li>
                 <li id="uitloglink1"><a onclick="logout()">Uitloggen</a></li>
                 <li class="inlogNaam" id="inlognaam"></li>
             </ul>
@@ -262,8 +262,11 @@
         <button id="backButton1" onclick="hidePage('verwijderPage1')">Terug naar overzicht</button>
     </div>
     <!-- Alle reservaties inzien -->
+    
     <div id="reservations">
         <h1 class="heading"> Alle <span>Reservaties</span> </h1>
+    </div>
+    <div id="hiddenButton">
         <button id="TerugNaarHomePage" onClick="window.location.reload();">Hoofdmenu</button>
     </div>
   
